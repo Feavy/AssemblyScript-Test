@@ -1,5 +1,5 @@
 # AssemblyScript Test
-Just some tests with AssemblyScript.
+Just some tests with AssemblyScript and AssemblyScript Loader.
 
 ## Installing
 
