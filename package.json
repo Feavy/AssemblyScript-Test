@@ -5,17 +5,19 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "asbuild:untouched": "asc assembly/index.ts -b build/untouched.wasm -t build/untouched.wat --validate --sourceMap --debug",
-        "asbuild:optimized": "asc assembly/index.ts -b build/optimized.wasm -t build/optimized.wat --validate --sourceMap --optimize",
-        "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized && browserify index.js -o bundle.js"
+        "asbuild:untouched": "asc assembly/index.ts -b build/module.WASM -t build/module.wat --sourceMap --debug",
+        "asbuild:optimized": "asc assembly/index.ts -b dist/module.WASM --exportRuntime -O3",
+        "asbuild": "npm run asbuild:optimized",
+        "start": "parcel index.html --open"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@assemblyscript/loader": "^0.9.4",
-        "browserify": "^16.5.1"
+        "@assemblyscript/loader": "^0.18.32",
+        "build": "^0.1.4",
+        "parcel-bundler": "^1.12.5"
     },
     "devDependencies": {
-        "assemblyscript": "^0.9.4"
+        "assemblyscript": "^0.18.32"
     }
 }
